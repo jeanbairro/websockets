@@ -17,7 +17,7 @@ No protocolo HTTP toda vez que eu quero um determinado recurso, por exemplo, uma
 
 > Só pra lembrar, esses cabeçalhos precisam estar de acordo com as [definições do HTTP](https://www.w3.org/Protocols/rfc2616/rfc2616.html).
 
-Esse processo de **solicitação-resposta** se repete basicamente a cada ação em uma página da web, tornando o HTTP uma má escolha para aplicações que trabalham com tempo real.
+Esse processo de **solicitação-resposta** se repete basicamente a cada ação em uma página da web, causando uma alta latência e tornando o HTTP uma má escolha para aplicações que trabalham com tempo real.
 
 > E daí? Eu odeio WebSockets e quero fazer um Chat usando o protocolo HTTP.
 > ![Foda-se](https://github.com/jeancasulo/java-websocket/blob/master/imagens/fodase.png?raw=true) <br/>

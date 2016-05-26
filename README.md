@@ -15,12 +15,7 @@ No protocolo HTTP toda vez que eu quero um determinado recurso, por exemplo, uma
 
 Esse processo de solicitação-resposta se repete basicamente a cada ação em uma página da web, tornando o HTTP uma má escolha para aplicações que trabalham com tempo real.
 
-> Foda-se,eu odeio WebSockets e quero fazer um Chat usando HTTP.
-
-![alt tag](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
-
-
-
+> ![Foda-se,eu odeio WebSockets e quero fazer um Chat usando HTTP.](https://github.com/jeancasulo/java-websocket/blob/master/imagens/fodase.png?raw=true)
 
 Um dos problemas mais comuns para criar a ilusão de uma conexão iniciada pelo servidor é a chamada sondagem longa (mais conhecido como long poolling). Com a sondagem longa, o cliente abre uma conexão HTTP com o servidor que permanece aberta até que a resposta seja enviada.
 

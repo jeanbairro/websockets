@@ -1,4 +1,4 @@
-#java-websocket
+#WebSockets
 Introdução a WebSockets, utilizando JAVA API para WebSockets.
 
 > Pessoal, toda a vez que eu me referir ao cliente, imaginem um cliente de uma lanchonete qualquer. Brincadeira, imaginem um navegador web, o IE de preferência.

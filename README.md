@@ -1,6 +1,8 @@
 #java-websocket
 Introdução a WebSockets, utilizando JAVA API para WebSockets.
 
+> Pessoal, toda a vez que eu me referir ao cliente, imaginem um cliente de uma lanchonete qualquer. Brincadeira, imaginem um navegador web, o IE de preferência.
+
 ##Que problema WebSockets resolvem?
 Conexões de alta latência de cliente-servidor, situação (alta latência) muito comum no protocolo HTTP.
 
@@ -37,8 +39,30 @@ Você poderia implementar isso de uma maneira menos extravagante utilizando, por
 > Servidor: Eu como servidor lhe digo que tens novas mensagens para serem recebidas. Recebe-as.
 
 Essas técnicas funcionam, avá. Porém elas sobrecarregam o nosso servidor HTTP e aumentam a latência já comentada lá no comecinho dessa
-página. Com a alta latência não seria possível saborear uma aplicação de tempo real da melhor maneira. 
+página. Com a alta latência não seria possível saborear uma aplicação de tempo real da melhor maneira :'( 
 
-##Solução
-A especificação WebSocket define uma API que estabelece conexões de "soquete" entre um navegador da web e um servidor. Em outras palavras, há uma conexão persistente entre o cliente e o servidor e ambas as partes podem começar a enviar dados a qualquer momento.
+##WebSockets: A solução de todos os seus problemas
+Um WebSocket permite que o cliente realize conexões de "soquete" com um servidor. Sendo mais direto, existe uma conexão entre cliente e o servidor e ambas as partes da conexão podem começar a enviar dados a qualquer momento. Um WebSocket fornece através de uma única conexão, um protocolo de comunicação full-duplex e bidirecional.
+
+> Eita, vamos devagar. O que são esses termos?
+
+* Full-duplex: Um cliente e um servidor podem enviar mensagens independentes um dos outros.
+* Bidirecional: Um cliente pode enviar uma mensagem para um servidor e vice versa.
+
+Toda conexão WebSocket começa por uma requisição HTTP.
+
+> Não se assustem, isso acontece só uma vez.
+
+Por meio de um único handshake - processo pelo qual duas máquinas afirmam que uma reconheceu à outra e já estão prontas para iniciar a comunicação entre si - o cliente inicia uma conexão com o servidor, e os dois trocam dados por quantas vezes acharem necessário, sem ter que ficarem trocando cabeçalhos a cada envio/recebimento de dados.
+
+> Que delícia cara!
+
+####Exemplo de cabeçalho WebSocket
+GET ws://exemplo.websocket.com.br/ HTTP/1.1 <br/>
+Origin: http://exemplo.com <br/>
+Connection: Upgrade <br/>
+Host: exemplo.websocket.com <br/>
+Upgrade: websockets <br/>
+
+**Upgrade**: Ele indica que o cliente deseja atualizar a conexão para outro protocolo, nesse caso o WebSocket. 
 

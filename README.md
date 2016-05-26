@@ -19,7 +19,7 @@ No protocolo HTTP toda vez que eu quero um determinado recurso, por exemplo, uma
 
 Esse processo de **solicitação-resposta** se repete basicamente a cada ação em uma página da web, tornando o HTTP uma má escolha para aplicações que trabalham com tempo real.
 
-> Foda-se, eu odeio WebSockets e quero fazer um Chat usando o protocolo HTTP.
+> E daí? Eu odeio WebSockets e quero fazer um Chat usando o protocolo HTTP.
 > ![Foda-se](https://github.com/jeancasulo/java-websocket/blob/master/imagens/fodase.png?raw=true) <br/>
 > Como eu faço?
 
@@ -66,3 +66,42 @@ Upgrade: websockets <br/>
 
 **Upgrade**: Ele indica que o cliente deseja atualizar a conexão para outro protocolo, nesse caso o WebSocket. 
 
+###Casos de uso
+Como a latência que o protocolo WebSockets causa é muito baixa (diferente do HTTP), ele é ideal para o desenvolvimento de aplicações mais performáticas, que dependem de atualizações em tempo real entre cliente e servidor:
+
+* Aplicações de chat
+* Jogos multiplayer online
+* Links para esporte ao vivo
+
+###Suporte WebSoket nos navegadores
+
+* Internet Explorer 10+
+* Mozilla Firefox 4+
+* Safari 5+
+* Google Chrome 4+
+* Opera 11+
+
+###API Java para WebSockets
+
+O Java define uma API padrão para a construção de um WebSocket. Fornecendo suporte para criar **servidores endPoint** e clientes endPoint. *Nesse repositório você encontrará uma implementação de um simples Chat* utilizando somente um **servidor endPoint** e um **cliente WebSocket**.
+
+* Servidor EndPoint: Objeto que representa o servidor na minha conexão WebSocket entre cliente e servidor. Ele vai conter o meu código *JAVA*.
+* Cliente WebSocket: Objeto que representa o cliente na minha conexão entre cliente e servidor. Óbviamente essa implementação roda no navegador, e utilizamos *Javascript* para construir esse lado cliente da nossa conexão.
+
+> YESSSSSSSSSS!
+
+Para criação de um servidor endPoint, você precisa criar uma classe java e decorar ela com a seguinte anotação:
+
+<code>@ServerEndpoint("/chat")</code> 
+
+Essa anotação declara a classe criada, sendo o WebSocket server endPoint da nossa aplicação, instânciada a nossa classe poderá aceitar requisições de entradas de WebSockets.
+
+Dentro da classe criada devemos implementar os métodos que dão a base para a comunicação entre o meu servidor endPoint e meu cliente WebSocket. Esses métodos podem ser decorados pelas seguintes anotações:
+
+* *@onOpen*: É a anotação usada para decorar o método que ira ser chamado depois da conexão do WebSocket abrir. Toda conexão tem uma sessão associada e o método com essa anotação é invocado apenas uma vez por conexão do WebSocket;
+* *@onMessage*: Essa anotação é usada para decorar o método que será chamado a cada mensagem é recebida. É nesse método onde todos os código de negocio irá ser escrito.
+* *@onClose*: É usado para decorar o método que será chamado quando a conexão com o WebSocket for fechada.
+
+##Então galera, por hoje é só! Aos poucos vou atualizando o repo.
+
+#Bons estudos!

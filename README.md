@@ -1,7 +1,7 @@
 #WebSockets
 Introdução a WebSockets, utilizando JAVA API para WebSockets.
 
-> Toda a vez que eu me referir ao cliente, associem esse cliente ao navegador web.
+> Toda vez que eu me referir ao cliente, associem esse cliente ao navegador web.
 
 ##Que problema WebSockets resolvem?
 Conexões de alta latência de cliente-servidor, situação (alta latência) muito comum no protocolo HTTP.

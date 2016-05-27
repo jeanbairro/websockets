@@ -4,16 +4,16 @@ Introdução a WebSockets, utilizando JAVA API para WebSockets.
 > Toda vez que eu me referir ao cliente, associem esse cliente ao navegador web.
 
 ##Que problema WebSockets resolvem?
-Conexões de alta latência de cliente-servidor, situação (alta latência) muito comum no protocolo HTTP.
+Conexões de alta latência entre cliente e servidor, situação (alta latência) muito comum no protocolo HTTP.
 
 > Bacana, mas o que é latência?
 > Em uma rede, latência determina o tempo que leva para um pacote de dados ir de um ponto da conexão até o o outro. 
 
 ##O problema mais detalhado
 
-A web foi moldada em cima do protocolo baseado em solicitação/resposta denominado HTTP. Um cliente carrega uma página da web e, em seguida, nada acontece até que o usuário clique na próxima página.
+A web foi moldada em cima de um protocolo baseado em solicitação/resposta, denominado HTTP. Um cliente carrega uma página da web e, em seguida, nada acontece até que o usuário clique na próxima página.
 
-No protocolo HTTP toda vez que eu quero um determinado recurso, por exemplo, uma lista de pessoas o cliente precisa montar um **cabeçalho de solicitação** e enviar pro servidor. Nesse momento é aberta uma conexão entre cliente-servidor. O servidor recebe esse cabeçalho e verifica se está tudo certo. Caso estiver, busca a lista de pessoas de algum lugar e anexa tal lista a um **cabeçalho de resposta**. Envia tudo isso para o cliente e depois disso a conexão entre cliente-servidor é fechada. 
+No protocolo HTTP toda vez que eu quero um determinado recurso, por exemplo, uma lista de pessoas o cliente precisa montar um **cabeçalho de solicitação** e enviar pro servidor. Nesse momento é aberta uma conexão entre cliente e servidor. O servidor recebe esse cabeçalho e verifica se está tudo certo. Caso estiver, busca a lista de pessoas de algum lugar e anexa tal lista a um **cabeçalho de resposta**. Envia tudo isso para o cliente e depois disso a conexão entre cliente e servidor é fechada. 
 
 > Só pra lembrar, esses cabeçalhos precisam estar de acordo com as [definições do HTTP](https://www.w3.org/Protocols/rfc2616/rfc2616.html).
 
@@ -28,7 +28,7 @@ Diante desta afirmação meu ilustre amigo, de uma maneira nada elegante, você 
 > Cliente: Eu como cliente inicio uma nova conexão e, reivindico novas mensagens. <br/>
 > Servidor: Eu como servidor lhe digo que não tens nada para receber. <br/>
 > -- Conexão finalizada <br/>
-> Cliente: Eu como cliente inicio uma nova conexão, reivindico novas mensagens. <br/>
+> Cliente: Eu como cliente inicio uma nova conexão e, reivindico novas mensagens. <br/>
 > Servidor: Eu como servidor lhe digo que tens novas mensagens para serem recebidas. Recebe-as. <br/>
 > -- Conexão finalizada
 
@@ -38,11 +38,11 @@ Você poderia implementar isso de uma maneira menos extravagante utilizando, por
 > -- Algum tempo depois... <br/>
 > Servidor: Eu como servidor lhe digo que tens novas mensagens para serem recebidas. Recebe-as.
 
-Essas técnicas funcionam, avá. Porém elas sobrecarregam o nosso servidor HTTP e aumentam a latência já comentada lá no comecinho dessa
+Essas técnicas funcionam. Porém elas sobrecarregam o nosso servidor HTTP e aumentam a latência, já comentada lá no comecinho dessa
 página. Com a alta latência não seria possível saborear uma aplicação de tempo real da melhor maneira :'( 
 
 ##WebSockets: A solução de todos os seus problemas
-Um WebSocket permite que o cliente realize conexões de "soquete" com um servidor. Sendo mais direto, existe uma conexão entre cliente e o servidor e ambas as partes da conexão podem começar a enviar dados a qualquer momento. Um WebSocket fornece através de uma única conexão, um protocolo de comunicação full-duplex e bidirecional.
+Um WebSocket permite que o cliente realize conexões de "soquete" com um servidor. Sendo mais direto, existe uma conexão entre cliente e servidor, e ambas as partes da conexão podem começar a enviar dados a qualquer momento. Um WebSocket fornece através de uma única conexão, um protocolo de comunicação full-duplex e bidirecional.
 
 > Eita, vamos devagar. O que são esses termos?
 
@@ -83,10 +83,10 @@ Como a latência que o protocolo WebSockets causa é muito baixa (diferente do H
 
 ###API Java para WebSockets
 
-O Java define uma API padrão para a construção de um WebSocket. Fornecendo suporte para criar **servidores endPoint** e clientes endPoint. *Nesse repositório você encontrará uma implementação de um simples Chat* utilizando somente um **servidor endPoint** e um **cliente WebSocket**.
+O Java define uma API padrão para a construção de WebSockets. Fornecendo suporte para criar **servidores endPoint** e clientes endPoint. *Nesse repositório você encontrará uma implementação de um simples Chat* utilizando somente um **servidor endPoint** e um **cliente WebSocket**.
 
-* Servidor EndPoint: Objeto que representa o servidor na minha conexão WebSocket entre cliente e servidor. Ele vai conter o meu código *JAVA*.
-* Cliente WebSocket: Objeto que representa o cliente na minha conexão entre cliente e servidor. Óbviamente essa implementação roda no navegador, e utilizamos *Javascript* para construir esse lado cliente da nossa conexão.
+* Servidor EndPoint: Objeto que representa o servidor WebSocket na minha conexão entre cliente e servidor. Ele vai conter o meu código *JAVA*.
+* Cliente WebSocket: Objeto que representa o cliente na minha conexão entre cliente e servidor. Óbviamente essa implementação roda no navegador, e utilizamos *Javascript* para construir esse *lado cliente* da nossa conexão.
 
 > YESSSSSSSSSS!
 
@@ -102,6 +102,18 @@ Dentro da classe criada devemos implementar os métodos que dão a base para a c
 * *@onMessage*: Essa anotação é usada para decorar o método que será chamado a cada mensagem é recebida. É nesse método onde todos os código de negocio irá ser escrito.
 * *@onClose*: É usado para decorar o método que será chamado quando a conexão com o WebSocket for fechada.
 
-##Então galera, por hoje é só! Aos poucos vou atualizando o repo.
+##Considerações
 
-#Bons estudos!
+Esse trabalho foi apresentado em sala de aula, na disciplina de *programação web*, do 5º semestre, ministrada pelo professor Carlos Henrique Bughi, do curso de *ciência da computação*, da [Universidade do Vale do Itajaí](http://www.univali.br/) pelos alunos:
+
+* André Smaniotto
+* Felipe Marcola
+* Jean Carlos Bairro
+* Yagan Cadorin
+
+##Referências
+
+* http://www.devmedia.com.br/java-websockets-introducao/30443
+* http://www.html5rocks.com/en/tutorials/websockets/basics/ [versão pt-br](http://www.html5rocks.com/pt/tutorials/websockets/basics/)
+* https://netbeans.org/kb/docs/javaee/maven-websocketapi.html
+

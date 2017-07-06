@@ -1,15 +1,15 @@
-#WebSockets
+# WebSockets
 Introdução a WebSockets, utilizando JAVA API para WebSockets.
 
 > Toda vez que eu me referir ao cliente, associem esse cliente ao navegador web.
 
-##Que problema WebSockets resolvem?
+## Que problema WebSockets resolvem?
 Conexões de alta latência entre cliente e servidor, situação (alta latência) muito comum no protocolo HTTP.
 
 > Bacana, mas o que é latência?
 > Em uma rede, latência determina o tempo que leva para um pacote de dados ir de um ponto da conexão até o o outro. 
 
-##O problema mais detalhado
+## O problema mais detalhado
 
 A web foi moldada em cima de um protocolo baseado em solicitação/resposta, denominado HTTP. Um cliente carrega uma página da web e, em seguida, nada acontece até que o usuário clique na próxima página.
 
@@ -41,7 +41,7 @@ Você poderia implementar isso de uma maneira menos extravagante utilizando, por
 Essas técnicas funcionam. Porém elas sobrecarregam o nosso servidor HTTP e aumentam a latência, já comentada lá no comecinho dessa
 página. Com a alta latência não seria possível saborear uma aplicação de tempo real da melhor maneira :'( 
 
-##WebSockets: A solução de todos os seus problemas
+## WebSockets: A solução de todos os seus problemas
 Um WebSocket permite que o cliente realize conexões de "soquete" com um servidor. Sendo mais direto, existe uma conexão entre cliente e servidor, e ambas as partes da conexão podem começar a enviar dados a qualquer momento. Um WebSocket fornece através de uma única conexão, um protocolo de comunicação full-duplex e bidirecional.
 
 > Eita, vamos devagar. O que são esses termos?
@@ -57,7 +57,7 @@ Por meio de um único handshake - processo pelo qual duas máquinas afirmam que 
 
 > Que delícia cara!
 
-####Exemplo de cabeçalho WebSocket
+#### Exemplo de cabeçalho WebSocket
 GET ws://exemplo.websocket.com.br/ HTTP/1.1 <br/>
 Origin: http://exemplo.com <br/>
 Connection: Upgrade <br/>
@@ -66,14 +66,14 @@ Upgrade: websockets <br/>
 
 **Upgrade**: Ele indica que o cliente deseja atualizar a conexão para outro protocolo, nesse caso o WebSocket. 
 
-###Casos de uso
+### Casos de uso
 Como a latência que o protocolo WebSockets causa é muito baixa (diferente do HTTP), ele é ideal para o desenvolvimento de aplicações mais performáticas, que dependem de atualizações em tempo real entre cliente e servidor:
 
 * Aplicações de chat
 * Jogos multiplayer online
 * Links para esporte ao vivo
 
-###Suporte WebSoket nos navegadores
+### Suporte WebSoket nos navegadores
 
 * Internet Explorer 10+
 * Mozilla Firefox 4+
@@ -81,7 +81,7 @@ Como a latência que o protocolo WebSockets causa é muito baixa (diferente do H
 * Google Chrome 4+
 * Opera 11+
 
-###API Java para WebSockets
+### API Java para WebSockets
 
 O Java define uma API padrão para a construção de WebSockets. Fornecendo suporte para criar **servidores endPoint** e clientes endPoint. *Nesse repositório você encontrará uma implementação de um simples Chat* utilizando somente um **servidor endPoint** e um **cliente WebSocket**.
 
@@ -102,7 +102,7 @@ Dentro da classe criada devemos implementar os métodos que dão a base para a c
 * *@onMessage*: Essa anotação é usada para decorar o método que será chamado a cada mensagem é recebida. É nesse método onde todos os código de negocio irá ser escrito.
 * *@onClose*: É usado para decorar o método que será chamado quando a conexão com o WebSocket for fechada.
 
-##Considerações
+## Considerações
 
 Esse trabalho foi apresentado em sala de aula, na disciplina de *programação web*, do 5º semestre, ministrada pelo professor Carlos Henrique Bughi, do curso de *ciência da computação*, da [Universidade do Vale do Itajaí](http://www.univali.br/) pelos alunos:
 
@@ -111,7 +111,7 @@ Esse trabalho foi apresentado em sala de aula, na disciplina de *programação w
 * Jean Carlos Bairro
 * Yagan Cadorin
 
-##Referências
+## Referências
 
 * http://www.devmedia.com.br/java-websockets-introducao/30443
 * http://www.html5rocks.com/en/tutorials/websockets/basics/ [versão pt-br](http://www.html5rocks.com/pt/tutorials/websockets/basics/)
